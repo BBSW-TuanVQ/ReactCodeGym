@@ -22,7 +22,7 @@ code {
 
 .container {
   height: 100vh;
-    background: linear-gradient(to right, #00853e, #50c878);
+    background: linear-gradient(to right, #004585, #c850ba);
     display: flex;
     justify-content: center;
     align-items: center;
