@@ -1,43 +1,25 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { selectTrending } from "../features/movie/movieSlice";
 
 function Trending() {
+  const movies = useSelector(selectTrending);
+
   return (
     <Container>
       <h4>Trending</h4>
       <Content>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://occ-0-58-325.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABWODzlKwPS5HvgWeQZeabfBDmNCLSiMVfrD-iIrxP5DqT3GyhPtZnLg9dvBZkCOm7gvVevbkuuBqoubkQq94OPI3kZ8Q4vJWxbYWlaVAKj7N5vN6l38LFwDwavzTqCsLN6_R.jpg?r=686"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://occ-0-58-325.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABWODzlKwPS5HvgWeQZeabfBDmNCLSiMVfrD-iIrxP5DqT3GyhPtZnLg9dvBZkCOm7gvVevbkuuBqoubkQq94OPI3kZ8Q4vJWxbYWlaVAKj7N5vN6l38LFwDwavzTqCsLN6_R.jpg?r=686"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://occ-0-58-325.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABWODzlKwPS5HvgWeQZeabfBDmNCLSiMVfrD-iIrxP5DqT3GyhPtZnLg9dvBZkCOm7gvVevbkuuBqoubkQq94OPI3kZ8Q4vJWxbYWlaVAKj7N5vN6l38LFwDwavzTqCsLN6_R.jpg?r=686"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://occ-0-58-325.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABWODzlKwPS5HvgWeQZeabfBDmNCLSiMVfrD-iIrxP5DqT3GyhPtZnLg9dvBZkCOm7gvVevbkuuBqoubkQq94OPI3kZ8Q4vJWxbYWlaVAKj7N5vN6l38LFwDwavzTqCsLN6_R.jpg?r=686"
-              alt=""
-            />
-          </Link>
-        </Wrap>
+        {movies &&
+          movies.map((movie, key) => {
+            return (
+              <Wrap>
+                <Link to={"/detail/" + movie.id}>
+                  <img src={movie.cardImg} alt={movie.title} />
+                </Link>
+              </Wrap>
+            );
+          })}
       </Content>
     </Container>
   );
