@@ -10,16 +10,15 @@ function NewDisney() {
     <Container>
       <h4>New Disney</h4>
       <Content>
-      {movies &&
+        {movies &&
           movies.map((movie, key) => {
-            return (<Wrap>
-              <Link to={'/detail/' + movie.id}>
-                <img
-                  src={movie.cardImg}
-                  alt={movie.title}
-                />
-              </Link>
-            </Wrap>)
+            return (
+              <Wrap key={key}>
+                <Link to={"/detail/" + movie.id}>
+                  <img src={movie.cardImg} alt={movie.title} />
+                </Link>
+              </Wrap>
+            );
           })}
       </Content>
     </Container>

@@ -13,7 +13,7 @@ function Originals() {
         {movies &&
           movies.map((movie, key) => {
             return (
-              <Wrap>
+              <Wrap key={key}>
                 <Link to={"/detail/" + movie.id}>
                   <img src={movie.cardImg} alt={movie.title} />
                 </Link>
